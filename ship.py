@@ -16,11 +16,16 @@ class Ship():
 
         # Movement flag
         self.moving_right = False
+        self.moving_left = False
 
     def update(self):
         """Update the ship's position based on the movement flag."""
+        # if else is used then right key would have priority
+        # we dont want that (ship sits still if both buttons pressed)
         if self.moving_right:
             self.rect.centerx += 1
+        if self.moving_left:
+            self.rect.centerx -= 1
 
     def blit(self):
         """Draw the ship at its current location"""
