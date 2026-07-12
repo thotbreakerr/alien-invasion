@@ -3,7 +3,7 @@ import pygame   # Contains functionality needed to make a game
 
 from settings import Settings
 from ship import Ship
-from game_functions as gf
+import game_functions as gf
 
 def run_game():
     # Initialize game and create a screen object
@@ -17,7 +17,8 @@ def run_game():
 
     # Start the main loop for the game.
     while True:
-        gf.check_events()
+        gf.check_events(ship)   # Keyboard response
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
 
 run_game()
