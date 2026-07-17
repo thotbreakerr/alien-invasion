@@ -1,5 +1,6 @@
 import sys      # exits the game when the players quits
 import pygame   # Contains functionality needed to make a game
+from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
@@ -15,10 +16,14 @@ def run_game():
     # Make a ship.
     ship = Ship(ai_settings, screen)
 
-    # Start the main loop for the game.
+    # Make a group to store bullets in.
+    bullets = Group()
+
+    # Start the main loop for the game. If anything happens in game look at loop
     while True:
-        gf.check_events(ship)   # Keyboard response
-        ship.update()
-        gf.update_screen(ai_settings, screen, ship)
+        gf.check_events(ai_settings, screen, ship, bullets)   # Keyboard response/player input
+        ship.update()   # Update position of ship
+        gf.update_bullets(bullets)  # Any bullets that have been fired
+        gf.update_screen(ai_settings, screen, ship, bullets)    # Use updated positions to draw a new screen
 
 run_game()
