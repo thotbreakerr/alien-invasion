@@ -26,6 +26,7 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)   # Keyboard response/player input
         ship.update()   # Update position of ship
         gf.update_bullets(bullets)  # Any bullets that have been fired
+        gf.update_aliens(ai_settings, aliens)
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)    # Use updated positions to draw a new screen
 
 run_game()
