@@ -32,11 +32,11 @@ def run_game():
     # Start the main loop for the game. If anything happens in game look at loop
     while True:
         gf.check_events(ai_settings, screen, stats, play_button, ship,
-            bullets)   # Keyboard response/player input
+            aliens, bullets)   # Keyboard response/player input
         
         if stats.game_active:
             ship.update()   # Update position of ship
-            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)  # Any bullets that have been fired
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)   # Any bullets that have been fired
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
             
         gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets, 
