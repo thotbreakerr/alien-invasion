@@ -11,16 +11,16 @@ class Scoreboard():
         self.ai_settings = ai_settings
         self.stats = stats
 
-    # Font settings for scoring information
-    self.text_color = (30, 30, 30)
-    self.font = pygmae.font.SysFont(None, 48)
+        # Font settings for scoring information
+        self.text_color = (30, 30, 30)
+        self.font = pygame.font.SysFont(None, 48)
 
-    # Prepare the initial score image.
-    self.prep_score()
+        # Prepare the initial score image.
+        self.prep_score()
 
     def prep_score(self):
         """Turn the score into a rendered image."""
-        score_str = str(self.score.stats)
+        score_str = str(self.stats.score)
         self.score_image = self.font.render(score_str, True, self.text_color,
             self.ai_settings.bg_color)
 
